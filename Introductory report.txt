@@ -1,6 +1,8 @@
 Introductory report
 
-Our project concept is a robot arm with between 3-6 joints and arms. The robots arms are moved by servos in each of it's joints. Each joint is controlled by potentiometers and the whole arm is powered by 4 AAA batteries. Our goal is to make a functioning robot arm that can be used pick up an object relative to it's size and move it around to another location.
+Our project concept is a robot arm with between 3-6 joints and arms. The robots arms are moved by servos in each of it's joints.
+Each joint is controlled by potentiometers and the whole arm is powered by 4 AAA batteries.
+Our goal is to make a functioning robot arm that can be used pick up an object relative to it's size and move it around to another location.
 
 We arrived at this design choice based on discussion between group members and recommendation from teachers during the idea presentation.
 
