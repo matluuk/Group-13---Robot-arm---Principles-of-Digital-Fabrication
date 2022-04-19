@@ -4,6 +4,8 @@ Our project concept is a robot arm with between 3-6 joints and arms. The robots 
 Each joint is controlled by potentiometers and the whole arm is powered by 4 AAA batteries.
 Our goal is to make a functioning robot arm that can be used pick up an object relative to it's size and move it around to another location.
 
+The arm is made of 3d printed materials from fablab and servos, each material and servos are connected in a way that it is easy to dissamble (screws).
+
 We arrived at this design choice based on discussion between group members and recommendation from teachers during the idea presentation.
 
 We had different ideas initially for the project. One of the other ideas was a self balancing robot until finally decided to do a robot arm. 
