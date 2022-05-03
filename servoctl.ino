@@ -1,16 +1,29 @@
-#include <Servo.h>
 
-#define NSERVOS 4
+#include <PCA9685.h>
 
-const int SERVO_PINS[NSERVOS] {6, 9, 10, 11};
+#define NSERVOS 6
+// 110 70 40
+// 80
+const int SERVO_SIGN[NSERVOS] { 1, 1, -1, -1, 1, 1 };
 
-Servo servos[NSERVOS];
+PCA9685 pwmController;
+PCA9685_ServoEval servo;
+
+uint16_t pwms[NSERVOS];
 
 void setup() {
-  for (int i=0; i<NSERVOS; i++) {
-    servos[i].attach(SERVO_PINS[i]);
-  }
   Serial.begin(9600);
+  Wire.begin();
+
+  pwmController.resetDevices();
+  pwmController.init();
+  pwmController.setPWMFreqServo();
+    
+  for (int i=0; i<NSERVOS; i++) {
+    pwms[i] = servo.pwmForAngle(0);
+  }
+
+  pwmController.setChannelsPWM(0, NSERVOS, pwms);
 }
 
 void loop() {
@@ -20,13 +33,15 @@ void loop() {
     buf[r] = ';';
     buf[r + 1] = 0;
   
-    char nbuf[4];
+    char nbuf[5];
     size_t npos = 0;
     
     for (int i=0; i<NSERVOS; i++) {
       npos += nextPart(&buf[npos], nbuf, ';');
-      servos[i].write(atoi(nbuf));
+      pwms[i] = servo.pwmForAngle(atoi(nbuf) * SERVO_SIGN[i]);
     }
+
+    pwmController.setChannelsPWM(0, NSERVOS, pwms);
   }
 }
 
