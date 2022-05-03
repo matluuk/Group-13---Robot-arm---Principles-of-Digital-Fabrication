@@ -15,4 +15,5 @@ Missing cables, many times in project we were missing cables such as powercable 
 ![6b13e877-e333-4da4-87ec-b0c692e3faa2](https://user-images.githubusercontent.com/98407040/166452095-410dd64e-189a-46ee-abe1-774b860094fc.jpg)
 Picture of the full arm:
 ![Arm](https://user-images.githubusercontent.com/98407040/166448498-348c43be-6a30-465f-a9e3-5c60d768ba33.jpg)
-Considering sustainability all the servos are attached by screws so they can be detached from the arm with a screwdriver. 
+
+Considering sustainability all the servos and 3d printed parts are attached by screws or bolts so they can be detached from the arm with a screwdriver.
