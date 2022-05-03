@@ -14,7 +14,7 @@ Errors and failures: the robot arm can get stuck within its own cables. We didnt
 We were still missing the claw part and the code for the arm needed some fine tuning, which we did by the end of week 17.
 ![Week 17 (2)](https://user-images.githubusercontent.com/98407040/166238417-e308aa06-25af-4b58-a0f2-cb5b5b1e011c.jpg)
 
-The design for the claw was heavily inspired by a youtube video https://youtu.be/IalkWUN6wvE
+The design for the extendable claw was heavily inspired by a youtube video https://youtu.be/IalkWUN6wvE
 
 We made changes to claw design so servos can be attached
 
