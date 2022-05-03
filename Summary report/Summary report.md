@@ -6,7 +6,7 @@ We have made a functioning robot arm that can grab objects in a 360 angle. The a
 The Arduino and the controller for all servos could have had a container for them. Also the servo cables can get in the way of the arm.
 In the project things that went well was the software for the arm, 3d designing and printing.
 
-Things that failed in project were:
+Things that failed in project were:\
 Timing, sometimes things took longer or shorter than expected.\
 Progress reporting, In week 15 (Easter week) there was no messages in our project Whatsapp group so weekly report was generalised.\
 Missing cables, many times in project we were missing cables such as powercable for controller and qwiic cable for controller. Pictures below.\
