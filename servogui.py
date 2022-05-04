@@ -5,8 +5,9 @@ import tkinter
 from tkinter import ttk
 
 
-REAL_ZERO = [0, -3, 17, -7, 0, 0]
+REAL_ZERO = [0, -3, 17, -7, 0, -10]
 FACTOR = [1, 1, 0.725, 1, 1, 1]
+TO = [90, 90, 90, 90, 90, -10]
 
 
 def send_pos(f, pos):
@@ -25,7 +26,7 @@ def smooth(f, a, b):
 with serial.Serial('/dev/ttyACM0', 9600) as f:
     sleep(2)
 
-    pos = [0] * 6
+    pos = [0] * 5 + [-10]
     send_pos(f, pos)
 
     tk = tkinter.Tk()
@@ -44,9 +45,9 @@ with serial.Serial('/dev/ttyACM0', 9600) as f:
                 send_pos(f, pos)
         return inner
 
-    scales = [ttk.LabeledScale(sliderfr, from_=-90, to=90) for i in range(6)]
+    scales = [ttk.LabeledScale(sliderfr, from_=-90, to=TO[i]) for i in range(6)]
     for i, s in enumerate(scales):
-        s.scale.set(0)
+        s.scale.set(pos[i])
         s._variable.trace_add('write', cb(i, s))
         s.pack(padx=5, pady=5, fill='both')
 
@@ -58,23 +59,23 @@ with serial.Serial('/dev/ttyACM0', 9600) as f:
 
     def reset():
         global cb_disable, pos
+        pos = [0] * 5 + [-10]
         cb_disable = True
-        for s in scales:
-            s.scale.set(0)
+        for i, s in enumerate(scales):
+            s.scale.set(pos[i])
         cb_disable = False
-        pos = [0] * 6
         send_pos(f, pos)
 
     ttk.Button(buttonsfr, text='Reset', command=reset).pack(side='left')
 
-    GRAB_AMOUNT = -67
+    GRAB_AMOUNT = -80
 
     saved = [
         REAL_ZERO.copy(),
-        [-32, 59, 44, 90, 0, 0],
+        [-32, 59, 44, 90, 0, -10],
         [-32, 59, 44, 90, 0, GRAB_AMOUNT],
-        [-54, -43, -38, -90, 0, GRAB_AMOUNT],
-        [-54, -50, -36, -90, 0, 0],
+        [-55, -43, -38, -90, 0, GRAB_AMOUNT],
+        [-55, -50, -36, -90, 0, -10],
     ]
 
     names = [
